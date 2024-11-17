@@ -1,0 +1,21 @@
+<!-- views/audienceSegment.ejs -->
+<% layout('layouts/layout') -%>
+<% title = 'Create Audience Segment' %>
+
+<h2>Create Audience Segment</h2>
+<form action="/api/audience-segments" method="POST">
+    <label for="name">Segment Name:</label>
+    <input type="text" name="name" required>
+
+    <label for="totalSpending">Total Spending >:</label>
+    <input type="number" name="totalSpending" placeholder="INR 10000">
+
+    <label for="visits">Visits <=:</label>
+    <input type="number" name="visits" placeholder="3">
+
+    <button type="submit">Create Segment</button>
+</form>
+
+<% if (audienceSize) { %>
+    <p>Audience Size: <%= audienceSize %></p>
+<% } %>

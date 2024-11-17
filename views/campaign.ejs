@@ -1,0 +1,20 @@
+<!-- views/campaign.ejs -->
+<% title = 'Create Campaign' %>
+
+<h2>Create Campaign</h2>
+<form action="/api/campaigns" method="POST">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required></textarea>
+
+  <label for="audienceSegment">Audience Segment:</label>
+  <select id="audienceSegment" name="audienceSegmentId" required>
+    <% segments.forEach(segment => { %>
+      <option value="<%= segment._id %>"><%= segment.name %></option>
+    <% }) %>
+  </select>
+
+  <button type="submit">Create Campaign</button>
+</form>
